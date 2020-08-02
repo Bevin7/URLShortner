@@ -1,0 +1,30 @@
+<h1 class="mt-4">Dashboard</h1>
+<p class="lead mb-3">Welcome <%= name %></p>
+<div class="container">
+    <h1>URL SHRINKER</h1>
+    <form action="/dashboard" method="POST" class="my-4 form-inline">
+        <label for ="fullUrl" class="sr-only">Url</label>
+        <input placeholder="url" type="url" name="fullUrl" id="fullUrl" required class="form-control col mr-2">
+        <button class="btn btn-success" type="submit">Shrink</button>
+    </form>
+    <table class="table table-striped table-responsive">
+        <thead>
+            <tr>
+                <th>Full URL</th>
+                <th>Short URL</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            
+            <% for(var i=0;i<shortUrls.length;i++) {  %>
+                <tr>
+                <td><a href="<%= fullUrls[i] %>"><%= fullUrls[i] %></a></td>
+                <td><a href="<%= shortUrls[i] %>"><%= shortUrls[i] %></a></td>
+            </tr>
+            <% }; %>
+        </tbody>
+        
+    </table>
+</div>
+<a href="/users/logout" class="btn btn-secondary">Logout</a>
